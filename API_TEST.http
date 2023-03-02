@@ -1,0 +1,22 @@
+GET http://localhost:8081/people/list
+###
+POST http://localhost:8081/people/add/
+Content-Type: application/json
+
+{"documentTypeId":"5",
+  "documentNumber":"22222",
+  "firstName":"juan",
+  "lastName":"peña",
+  "address":"test address",
+  "birthDate":"2023-03-01",
+  "phone":"0000"
+}
+###
+
+POST http://localhost:8081/people/update/
+Content-Type: application/json
+
+{"id":3,"documentTypeId":5,"documentNumber":"44444444","firstName":"juan","lastName":"peña","address":"test address","birthDate":"2023-02-28","phone":"0000","creationDate":"2023-03-02T03:14:09.000+00:00"}
+
+###
+DELETE http://localhost:8081/people/delete/4
