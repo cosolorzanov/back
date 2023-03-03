@@ -31,9 +31,13 @@ public class PersonServiceImp implements PersonService {
 
     @Override
     public PersonEntity updatePerson(PersonEntity person) {
-        personRepository.save(person);
-
-        return  person;
+        if (personRepository.findById(person.getId()).isPresent()){
+            PersonEntity oldPerson = personRepository.findById(person.getId()).get();
+            person.setCreationDate(oldPerson.getCreationDate());
+            personRepository.save(person);
+            return  person;
+        }
+        return new PersonEntity();
     }
 
     @Override
